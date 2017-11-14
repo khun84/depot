@@ -2,7 +2,7 @@ import React from 'react';
 import NoPayType from './NoPayType';
 import CreditCardPayType from './CreditCardPayType';
 import CheckPayType from './CheckPayType';
-import PurchaseOrderPayType from './PurchaseOrderPaytype';
+import PurchaseOrderPayType from './PurchaseOrderPayType';
 
 export default class PayTypeSelector extends React.Component {
   constructor(props) {
