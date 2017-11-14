@@ -1,5 +1,5 @@
 # Change these
-server '13.229.93.180', port: '3000', roles: [:web, :app, :db], primary: true
+server '13.229.93.180', port: '80', roles: [:web, :app, :db], primary: true
 
 set :repo_url,        'git@github.com:khun84/depot.git'
 set :application,     'depot'
