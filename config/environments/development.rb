@@ -20,10 +20,12 @@ Rails.application.configure do
     config.public_file_server.headers = {
       'Cache-Control' => "public, max-age=#{2.days.seconds.to_i}"
     }
+    config.action_controller.enable_fragment_cache_logging = true
   else
     config.action_controller.perform_caching = false
 
     config.cache_store = :null_store
+
   end
 
   # Don't care if the mailer can't send.
@@ -31,6 +33,21 @@ Rails.application.configure do
 
   config.action_mailer.perform_caching = false
 
+  config.action_mailer.delivery_method = :smtp
+
+  config.action_mailer.smtp_settings = {
+          address: 'smtp.gmail.com',
+          port: 587,
+          domain: 'example.com',
+          authentication: 'plain',
+          user_name: 'khun84@gmail.com',
+          password: ENV['GMAIL_PASSWORD'],
+          enable_starttls_auto: true
+  }
+
+  config.action_mailer.perform_deliveries = true
+
+  config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
   # Print deprecation notices to the Rails logger.
   config.active_support.deprecation = :log
 

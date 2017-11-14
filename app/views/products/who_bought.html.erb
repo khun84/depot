@@ -1,0 +1,28 @@
+<h3>Who bought <%= @product.title %></h3>
+<p>Last updated: <%= @product.orders.last.updated_at.in_time_zone(ActiveSupport::TimeZone.new("Kuala Lumpur")) %></p>
+
+<% if @product.orders %>
+    <% @product.orders.includes(:line_items).each do |order| %>
+      <table>
+        <thead>
+        <tr>
+          <th>Product</th>
+          <th>Quantity</th>
+          <th>Total Price</th>
+        </tr>
+        </thead>
+
+        <tbody>
+          <%= render partial: 'product_order', collection: order.line_items, as: 'item' %>
+          <tr>
+            <th colspan="2">Order total:</th>
+            <th><%= order.line_items.map(&:total_price).sum %></th>
+          </tr>
+        </tbody>
+      </table>
+      <p>Bought by: <%= order.name %></p>
+      <p>Payment type: <%= order.pay_type %></p>
+      <br>
+    <% end %>
+
+<% end %>

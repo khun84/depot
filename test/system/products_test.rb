@@ -6,4 +6,7 @@ class ProductsTest < ApplicationSystemTestCase
   #
   #   assert_selector "h1", text: "Product"
   # end
+
+
+
 end

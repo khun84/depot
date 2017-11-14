@@ -1,0 +1,7 @@
+<p><strong>Name</strong></p>
+<p><%= @user.name %></p>
+<hr>
+<label><strong>Email</strong></label>
+<p><%= @user.email %></p>
+
+<%= button_to 'Edit', edit_current_user_path, method: :get %>

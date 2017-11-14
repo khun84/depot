@@ -1,0 +1,7 @@
+Dear <%= @order.name %>:
+
+We couldn't process your order with the following details due to payment error. You may try different payment should the the issue persists.
+
+<%= render partial: 'line_items/line_item', collection: @order.line_items.includes(:product), as: 'line_item' %>
+
+Pragmatic Bookstore

@@ -18,3 +18,9 @@
 
 .byebug_history
 /.idea
+/public/packs
+/public/packs-test
+/node_modules
+
+# Ignore application configuration
+/config/application.yml

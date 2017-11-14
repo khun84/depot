@@ -1,0 +1,15 @@
+<!--<% @current_item||=nil %>-->
+<% email ||=false %>
+<% if item == @current_item %>
+<tr class="line-item-highlight">
+<% else %>
+<tr>
+<% end %>
+  <td class="quantity"><%= item.quantity %></td>
+  <td><%= item.product.title %></td>
+  <td class="price"><%= number_to_currency(item.total_price) %></td>
+<% if !email %>
+  <td class="action"><%= button_to '-', item, method: :patch, params:{"line_item[quantity]" => "-1"}, remote: true %></button></td>
+  <td class="action"><%= button_to 'Delete', item, method: :delete, data:{confirm: 'Are you sure?'}, remote:true %></td>
+<% end %>
+</tr>

@@ -1,0 +1,28 @@
+<% if @count && @count > 5 %>
+  <p>Visit count: <%= "#{@count} #{'time'.pluralize(@count)}" %></p>
+<% end %>
+
+<h1><%= t('.title_html') %></h1>
+
+<ul class="catalog">
+
+  <% cache @products do %>
+    <% @products.each do |product| %>
+
+      <% cache product do %>
+        <li>
+          <%= link_to '', href: line_items_path(product_id: product), method: :post, remote: true do %>
+            <%= image_tag(product.image_url) %>
+          <% end %>
+          <h2><%= product.title %></h2>
+          <p><%= sanitize(product.title) %></p>
+          <div class="price"><%= number_to_currency(product.price) %></div>
+          <%= button_to t('.add_html'), line_items_path(product_id: product, locale: I18n.locale), remote: true %>
+        </li>
+      <% end %>
+    <% end %>
+  <% end %>
+
+
+</ul>
+
