@@ -82,4 +82,5 @@ production:
   <<: *default
   database: depot_production
   username: pguser
-  password: <%= ENV['DEPOT_DATABASE_PASSWORD'] %>
+#  password: <%= ENV['DEPOT_DATABASE_PASSWORD'] %>
+  password: password
