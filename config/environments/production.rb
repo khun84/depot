@@ -61,6 +61,7 @@ Rails.application.configure do
   # config.active_job.queue_adapter     = :resque
   # config.active_job.queue_name_prefix = "depot_#{Rails.env}"
   config.action_mailer.perform_caching = false
+  config.action_mailer.raise_delivery_errors = true
 
   config.action_mailer.delivery_method = :smtp
 
@@ -68,7 +69,7 @@ Rails.application.configure do
           address: 'smtp.gmail.com',
           port: 587,
           domain: '13.229.93.180',
-          authentication: 'plain',
+          authentication: 'login',
           user_name: 'daniel@virtualspripit.me',
           password: Rails.application.secrets.gmail_password,
           enable_starttls_auto: true
