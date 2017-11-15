@@ -40,8 +40,8 @@ Rails.application.configure do
           port: 587,
           domain: 'example.com',
           authentication: 'plain',
-          user_name: 'khun84@gmail.com',
-          password: ENV['GMAIL_PASSWORD'],
+          user_name: 'daniel@virtualspirit.me',
+          password: Rails.application.secrets.gmail_password,
           enable_starttls_auto: true
   }
 

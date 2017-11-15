@@ -1,5 +1,5 @@
 <h2>Sign up</h2>
-<%= form_for(User.new, url: register_path, method: :get) do |f| %>
+<%= form_for(User.new, url: register_path, method: :post) do |f| %>
   <%= devise_error_messages! %>
 
   <div class="field">
