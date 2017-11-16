@@ -21,6 +21,12 @@ Rails.application.routes.draw do
 
   end
 
+  # have declare the products routes before the locale enabled routes
+  # otherwise /products will be interpreted as /(:locale) and the root controller will handle the request
+  # instead of products controller
+  resources :products do
+    get :who_bought, on: :member
+  end
   # for current user
   get 'users/profile', to: 'users#show_current_user', as: :current_user
   get 'users/edit', to: 'users#edit', as: :edit_current_user
@@ -36,9 +42,6 @@ Rails.application.routes.draw do
     root 'store#index', as: :store_index, via: :all
   end
 
-  resources :products do
-    get :who_bought, on: :member
-  end
 
   # serve websocket cable requests in-process
   mount ActionCable.server => '/cable'
