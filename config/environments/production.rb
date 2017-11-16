@@ -42,7 +42,7 @@ Rails.application.configure do
   # Mount Action Cable outside main process or domain
   # config.action_cable.mount_path = nil
   config.action_cable.url = 'ws://13.229.93.180/cable:8081'
-  config.action_cable.allowed_request_origins = [ 'http://13.229.93.180' ]
+  config.action_cable.allowed_request_origins = [ 'http://13.229.93.180', /http:\/\/13\.229\.93\.180.*/ ]
 
   # Force all access to the app over SSL, use Strict-Transport-Security, and use secure cookies.
   # config.force_ssl = true
